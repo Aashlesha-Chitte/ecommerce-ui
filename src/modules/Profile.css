@@ -1,0 +1,27 @@
+/* Profile container */
+.profile-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Profile heading */
+  .profile-heading {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  /* Profile details */
+  .profile-details {
+    margin-top: 10px;
+  }
+  
+  .profile-details p {
+    margin-bottom: 5px;
+  }
+  
+  /* Loading message */
+  .loading-message {
+    font-style: italic;
+  }
+  

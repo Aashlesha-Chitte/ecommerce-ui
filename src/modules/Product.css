@@ -1,0 +1,51 @@
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Three columns with equal width */
+    gap: 20px; /* Gap between grid items */
+    justify-content: center; /* Center the grid horizontally */
+}
+
+.product-grid {
+    list-style: none; /* Remove default list bullet */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-grid li {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.product-grid img {
+    width: 200px;
+    height: 350px;
+}
+
+.product-controls {
+    display: flex;
+    align-items: center;
+    width: 160px; 
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  
+  .product-controls button {
+    background-color: #f0f0f0;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 3px;
+  }
+  
+  .quantity-label {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  
