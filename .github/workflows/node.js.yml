@@ -1,40 +1,37 @@
-name: Node.js CI/CD
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ "develop" ]
-  pull_request:
-    branches: [ "develop" ]
+    branches:
+      - main  # or your default branch name
+
+permissions:
+  contents: write  # Gives the workflow write permission to the repository
+  pages: write    # Allows deployment to GitHub Pages
+  id-token: write # Allows the workflow to authenticate with GitHub Pages
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-    
-    - name: Use Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: 18.x
-        cache: 'npm'
-    
-    - name: Install dependencies
-      run: |
-        npm install --legacy-peer-deps
-        npm install gh-pages --save-dev
-    
-    - name: Build
-      run: npm run build
-    
-    - name: Run tests
-      run: npm test -- --passWithNoTests
-    
-    - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@v4
-      with:
-        folder: build
-        branch: gh-pages
-        clean: true
-        token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build  # Adjust this to your build directory
+          publish_branch: gh-pages
