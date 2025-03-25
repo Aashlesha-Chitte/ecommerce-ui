@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  HashRouter,
+  BrowserRouter as Router,
   Switch,
   Route,
 } from 'react-router-dom';
@@ -35,7 +35,7 @@ function App() {
   };
 
   return (
-    <HashRouter>
+    <Router>
       <div>
         <Header userId={localStorage.getItem('userId')} isAuthenticated={isAuthenticated} handleLogout={handleLogout} cartItems={cartItems} />
         <Switch>
@@ -64,7 +64,7 @@ function App() {
           </Route>
         </Switch>
       </div>
-    </HashRouter>
+    </Router>
   );
 }
 
