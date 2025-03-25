@@ -2,6 +2,7 @@
   "name": "ecommerce-ui",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://aashlesha-chitte.github.io/ecommerce-ui",
   "dependencies": {
     "axios": "^1.4.0",
     "react": "16.14.0",
@@ -10,6 +11,7 @@
     "react-scripts": "4.0.3"
   },
   "scripts": {
+    "deploy": "gh-pages -d build",
     "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test",
@@ -32,5 +34,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }
