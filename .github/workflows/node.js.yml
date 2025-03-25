@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Node.js CI/CD
 
 on:
   push:
@@ -7,11 +7,12 @@ on:
     branches: [ "develop" ]
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v4
     
     - name: Use Node.js
       uses: actions/setup-node@v4
@@ -20,10 +21,15 @@ jobs:
         cache: 'npm'
     
     - name: Install dependencies
-      run: npm ci
+      run: |
+        npm install --legacy-peer-deps
+        npm install gh-pages --save-dev
     
     - name: Build
       run: npm run build
+    
+    - name: Run tests
+      run: npm test -- --passWithNoTests
     
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
@@ -31,3 +37,4 @@ jobs:
         folder: build
         branch: gh-pages
         clean: true
+        token: ${{ secrets.GITHUB_TOKEN }}
