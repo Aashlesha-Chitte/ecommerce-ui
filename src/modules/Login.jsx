@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import axiosInstance from '../api';
 import './commonStyle.css';
+import axios from 'axios';
 
 const Login = ({ handleLogin }) => {
   const [formData, setFormData] = useState({
@@ -17,7 +17,7 @@ const Login = ({ handleLogin }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axiosInstance.post('/auth/login', formData);
+      const response = await axios.post('https://ecommerce-svc.vercel.app/ecommerce-ui/auth/login', formData);
       const { token, user } = response.data;
       localStorage.setItem('token', token);      
       localStorage.setItem('userId', user.id);

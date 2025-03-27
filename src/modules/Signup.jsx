@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import axiosInstance from '../api';
 import './commonStyle.css';
+import axios from 'axios';
 
 const Signup = ({ handleSignupSuccess }) => {
     const [formData, setFormData] = useState({
@@ -17,10 +17,10 @@ const Signup = ({ handleSignupSuccess }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axiosInstance.post('/auth/signup', formData);
+            const response = await axios.post('https://ecommerce-svc.vercel.app/ecommerce-ui/auth/signup', formData);
             const { token, user } = response.data;
             localStorage.setItem('token', token);
-            localStorage.setItem('userId', user._id);
+            localStorage.setItem('userId', user.id);
             handleSignupSuccess();
         } catch (error) {
             console.error('Error signing up:', error);

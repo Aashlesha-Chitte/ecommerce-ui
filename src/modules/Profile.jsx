@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import axiosInstance from '../api';
 import { useParams } from 'react-router-dom';
 import './Profile.css'
+import axios from 'axios';
 
 const Profile = () => {
   const { id } = useParams();
@@ -9,7 +9,7 @@ const Profile = () => {
   
   const fetchUserProfile = async () => {
     try {
-      const response = await axiosInstance.get(`/auth/user/${id}`);
+      const response = await axios.get(`https://ecommerce-svc.vercel.app/ecommerce-ui/auth/user/${id}`);
       setUserProfile(response.data.data);
     } catch (error) {
       console.error('Error fetching user profile:', error);
