@@ -2,7 +2,7 @@
   "name": "ecommerce-ui",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://aashlesha-chitte.github.io/",
+  "homepage": "https://aashlesha-chitte.github.io/ecommerce-ui",
   "dependencies": {
     "axios": "^1.4.0",
     "react": "16.14.0",
