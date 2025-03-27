@@ -19,8 +19,8 @@ const Login = ({ handleLogin }) => {
     try {
       const response = await axiosInstance.post('/auth/login', formData);
       const { token, user } = response.data;
-      localStorage.setItem('token', token);
-      localStorage.setItem('userId', user._id);
+      localStorage.setItem('token', token);      
+      localStorage.setItem('userId', user.id);
       handleLogin();
     } catch (error) {
       console.error('Error logging in:', error);

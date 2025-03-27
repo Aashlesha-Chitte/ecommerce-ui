@@ -35,7 +35,7 @@ function App() {
   };
 
   return (
-    <Router>
+    <Router basename="/ecommerce-ui">
       <div>
         <Header userId={localStorage.getItem('userId')} isAuthenticated={isAuthenticated} handleLogout={handleLogout} cartItems={cartItems} />
         <Switch>

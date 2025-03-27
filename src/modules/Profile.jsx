@@ -6,7 +6,7 @@ import './Profile.css'
 const Profile = () => {
   const { id } = useParams();
   const [userProfile, setUserProfile] = useState(null);
-
+  
   const fetchUserProfile = async () => {
     try {
       const response = await axiosInstance.get(`/auth/user/${id}`);
