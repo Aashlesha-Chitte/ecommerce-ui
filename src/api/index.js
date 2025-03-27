@@ -7,7 +7,7 @@ const getToken = () => {
 };
 
 const axiosInstance = axios.create({
-  baseURL: process.env.API_BASE_URL,
+  baseURL: 'https://ecommerce-svc.vercel.app/ecommerce-ui',
 });
 
 axiosInstance.interceptors.request.use(
