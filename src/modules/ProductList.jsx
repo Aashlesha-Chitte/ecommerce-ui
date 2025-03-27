@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axiosInstance from '../api';
 import './Product.css';
+import axios from 'axios';
 
 const ProductList = ({ isAuthenticated, cartItems, setCartItems }) => {
   const [products, setProducts] = useState([]);
 
   const fetchProducts = async () => {
     try {
-      const response = await axiosInstance.get('/products');
+      const response = await axios.get('https://ecommerce-svc.vercel.app/ecommerce-ui/products');
       setProducts(response.data.data);
     } catch (error) {
       console.error('Error fetching products:', error);
