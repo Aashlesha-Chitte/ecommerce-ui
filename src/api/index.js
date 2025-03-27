@@ -1,13 +1,13 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:9001/api";
+// const API_BASE_URL = "http://localhost:9001/api";
 
 const getToken = () => {
   return localStorage.getItem("token");
 };
 
 const axiosInstance = axios.create({
-  baseURL: API_BASE_URL,
+  baseURL: process.env.API_BASE_URL,
 });
 
 axiosInstance.interceptors.request.use(
